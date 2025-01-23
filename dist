@@ -1,0 +1,15 @@
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+define("index", ["require", "exports", "express"], function (require, exports, express_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    express_1 = __importDefault(express_1);
+    const app = (0, express_1.default)();
+    app.get("/", (req, res) => {
+        res.send("Server is up ans Running");
+    });
+    app.listen(3000, () => {
+        console.log("Server is running at port 3000");
+    });
+});
