@@ -35,7 +35,7 @@ const FundEscrowController = async (
   if (!wallet) {
     return res.send({ status: 0, message: "Something went wrong" });
   }
-  const recipientWallet = await Wallet.findOne({ _id: recipientUserId });
+  const recipientWallet = await Wallet.findOne({ userId: recipientUserId });
   if (!recipientWallet) {
     return res.send({
       status: 0,

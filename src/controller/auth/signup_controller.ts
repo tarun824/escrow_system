@@ -15,7 +15,7 @@ const SignupController = async (req: Request, res: Response): Promise<any> => {
     phoneNo: z.string(),
     countryCode: z
       .string()
-      .length(2, { message: "Country code must be exactly 2 characters." }),
+      .length(3, { message: "Country code must be exactly 2 characters." }),
   });
 
   const schemaStatus = signupSchema.safeParse({

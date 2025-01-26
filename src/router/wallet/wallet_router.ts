@@ -5,8 +5,8 @@ import WithdrawFundController from "../../controller/wallet/withdraw_fund_contro
 import ViewBalanceController from "../../controller/wallet/view_balance_controller";
 const walletRouter = express.Router();
 
-walletRouter.get("/add_fund", UserMiddleware, AddFundController);
-walletRouter.get("/withdraw_fund", UserMiddleware, WithdrawFundController);
+walletRouter.post("/add_fund", UserMiddleware, AddFundController);
+walletRouter.post("/withdraw_fund", UserMiddleware, WithdrawFundController);
 walletRouter.get("/view_balance", UserMiddleware, ViewBalanceController);
 
 export default walletRouter;

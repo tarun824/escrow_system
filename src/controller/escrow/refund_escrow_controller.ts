@@ -42,13 +42,13 @@ const RefundEscrowController = async (
   if (!wallet) {
     return res.send({ status: 0, message: "Something went wrong" });
   }
+  // Add amount to Sender
+  wallet.balance = wallet.balance + escrow.amount;
+  await wallet.save();
   // Minus mount from escrow
-  escrow.amount = escrow.amount - amount;
+  escrow.amount = 0;
   escrow.status = "refund";
   await escrow.save();
-  // Add amount to Sender
-  wallet.balance = wallet.balance + amount;
-  await wallet.save();
 
   await EscrowTransaction.create({
     escrowId: escrow._id,
